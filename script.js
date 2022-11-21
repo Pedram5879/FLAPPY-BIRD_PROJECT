@@ -21,6 +21,25 @@ var bg = {
     }
 }
 
+var fg = {
+    sX :  465,
+    sY : 0, 
+    w : 195, //650 
+    h : 85, 
+    x : 0, 
+    dx: 2, 
+    y : cvs.height - 85, 
+    darw : function(){
+        ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
+        ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x + this.w, this.y, this.w, this.h);
+    },
+    update : function(){
+        if(state.current == state.game){
+            this.x = (this.x - this.dx) % (this.w/10);
+        }
+    }
+}
+
 function update(){
 
 }
