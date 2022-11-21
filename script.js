@@ -41,7 +41,7 @@ var fg = {
 }
 
 function update(){
-
+    fg.update();
 }
 function darw(){
     ctx.fillStyle = "#4ec0ca";
