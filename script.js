@@ -68,6 +68,36 @@ var bird = {
     flap : function(){
         this.speed = this.jump;
     },
+    update : function(){
+        var period = state.current == state.getReady ? 8 :4;
+        this.animationIndex += frames % period == 0 ? 1 : 0;
+        this.animationIndex = this.animationIndex % 4;
+        if(state.current == state.getReady){
+            this.y = 150;
+        }
+        else{
+            if(this.speed < 0){
+                this.rotation =  -25 * DEGREE;
+                // console.log("soghot");
+            }else{
+                this.rotation = 70 * DEGREE;
+                
+            }
+            this.speed += this.gravity;
+            this.y += this.speed;
+            // console.log(this.speed);
+            // console.log(this.jump);
+        }
+        if(this.y + this.h/2 >= cvs.height - fg.h){
+            this.y = cvs.height - fg.h - this.h/2;
+            this.animationIndex = 1;
+            // this.y = 150; 
+            if(state.current == state.game){
+                DIE.play();
+                state.current = state.gameOver;
+            }
+        }
+    }
 };
 
 function update(){
