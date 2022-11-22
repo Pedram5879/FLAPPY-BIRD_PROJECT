@@ -40,6 +40,36 @@ var fg = {
     }
 }
 
+var bird = {
+    animation : [
+        {sX : 47 , sY : 7},
+        {sX : 4, sY : 7},
+        {sX : 47, sY : 7},
+        {sX : 92, sY : 7},
+    ],
+    jump : -4.6, 
+    w : 29, 
+    h : 21, 
+    x : 50, 
+    y : 150, 
+    animationIndex : 1,
+    speed : 0,
+    gravity : 0.25,
+    rotation : 0,
+    radius : 12,
+    draw : function(){
+        let bird2 = this.animation[this.animationIndex];
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rotation);
+        ctx.drawImage(sprite2, bird2.sX, bird2.sY, this.w , this.h, -this.w/2, -this.h/2, this.w, this.h);
+        ctx.restore();
+    },
+    flap : function(){
+        this.speed = this.jump;
+    },
+};
+
 function update(){
     fg.update();
 }
