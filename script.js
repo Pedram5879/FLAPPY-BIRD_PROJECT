@@ -101,6 +101,7 @@ var bird = {
 };
 
 function update(){
+    bird.update();
     fg.update();
 }
 function darw(){
