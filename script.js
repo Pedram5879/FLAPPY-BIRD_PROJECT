@@ -107,6 +107,14 @@ var getReady = {
     h : 78, 
     x : cvs.width/2 - 91/2,
     y : 80;
+    draw : function(){
+        if(state.current == state.getReady){
+            ctx.drawImage(sprite, 470, 97, 123, 38, 100, 40, 123, 38);
+            ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
+            // ctx.drawImage(sprite, 550, 180, 83, 52, 120, 160, 83, 52);
+        }
+        // console.log(state.current);
+    }
 }
 
 function update(){
