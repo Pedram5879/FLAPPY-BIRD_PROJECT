@@ -125,7 +125,10 @@ function darw(){
     ctx.fillStyle = "#4ec0ca";
     ctx.fillRect(0, 0, cvs.width, cvs.height);
 
-
+    bg.darw();
+    fg.darw();
+    bird.draw();
+    getReady.draw();
 }
 
 function animate(){
