@@ -100,6 +100,15 @@ var bird = {
     }
 };
 
+var getReady = {
+    sX :  455,
+    sY : 140,
+    w : 91, //546 218
+    h : 78, 
+    x : cvs.width/2 - 91/2,
+    y : 80;
+}
+
 function update(){
     bird.update();
     fg.update();
