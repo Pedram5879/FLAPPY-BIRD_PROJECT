@@ -124,7 +124,22 @@ var gameOver = {
     h : 91, 
     x : cvs.width/2 - 174/2, 
     y : 100, 
+    draw : function(){
+        if(state.current == state.gameOver){
+            ctx.drawImage(sprite, 625, 96, 123, 38, 100, 40, 123, 38);
+            ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
+            // ctx.drawImage()
+            if(score.value >= 5){
+                ctx.drawImage(sprite3, 0, 35, 40, 37, 82, 132, 40, 37);
 
+            }
+            else{
+                ctx.drawImage(sprite3, 0, 0,40, 35, 82, 134, 40, 35);
+
+            }
+        }
+        // console.log(state.current);
+    },
 }
 
 function update(){
