@@ -154,6 +154,7 @@ function darw(){
     fg.darw();
     bird.draw();
     getReady.draw();
+    gameOver.draw();
 }
 
 function animate(){
