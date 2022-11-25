@@ -117,6 +117,16 @@ var getReady = {
     }
 }
 
+var gameOver = {
+    sX :  6,
+    sY : 402, 
+    w : 174, //180 493                                          
+    h : 91, 
+    x : cvs.width/2 - 174/2, 
+    y : 100, 
+
+}
+
 function update(){
     bird.update();
     fg.update();
