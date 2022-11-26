@@ -6,6 +6,13 @@ var frames = 0;
 var sprite = new Image();
 sprite.src = "./images/sprite.png";
 
+var state = {
+    current : 0, 
+    getReady : 0, 
+    game : 1,
+    gameOver : 2,
+}
+
 var bg = {
     sX : 0, 
     sY : 0, 
