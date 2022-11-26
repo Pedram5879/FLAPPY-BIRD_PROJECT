@@ -13,6 +13,20 @@ var state = {
     gameOver : 2,
 }
 
+function clickHandler(){
+    switch (state.current){
+        case state.getReady :
+            state.current = state.game;
+            break;
+        case state.game :
+            bird.flap();
+            break;
+        case state.gameOver:
+            state.current = state.getReady;
+            break;
+    }
+}
+
 var bg = {
     sX : 0, 
     sY : 0, 
