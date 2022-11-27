@@ -28,6 +28,11 @@ function clickHandler(){
 }
 
 document.addEventListener("click", clickHandler);
+document.addEventListener("keydown", (e)=>{
+    if(e.key === ' ' || e.key === 'Spacebar' || e.which == 32){
+        clickHandler();
+    }
+});
 
 var bg = {
     sX : 0, 
