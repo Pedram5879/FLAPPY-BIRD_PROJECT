@@ -27,6 +27,8 @@ function clickHandler(){
     }
 }
 
+document.addEventListener("click", clickHandler);
+
 var bg = {
     sX : 0, 
     sY : 0, 
