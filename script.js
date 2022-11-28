@@ -22,6 +22,8 @@ function clickHandler(){
             bird.flap();
             break;
         case state.gameOver:
+            bird.speed = 0;
+            bird.rotation = 0;
             state.current = state.getReady;
             break;
     }
