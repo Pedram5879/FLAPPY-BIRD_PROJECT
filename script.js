@@ -170,7 +170,24 @@ var gameOver = {
         }
         // console.log(state.current);
     },
-}
+};
+var pipes = {
+    top : {
+        sX : 90, 
+        sY : 506, 
+    },
+    bottom : {
+        sX : 46, 
+        sY : 506, 
+    }, 
+    w : 35, 
+    h : 247,
+    maxYpos : -150,
+    position : [], 
+    gap : 100,
+    dx : 2,
+      
+};
 
 function update(){
     bird.update();
