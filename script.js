@@ -255,6 +255,7 @@ function darw(){
 
     bg.darw();
     fg.darw();
+    pipes.draw();
     bird.draw();
     getReady.draw();
     gameOver.draw();
