@@ -186,7 +186,49 @@ var pipes = {
     position : [], 
     gap : 100,
     dx : 2,
-      
+    
+    update : function(){
+        if(state.current != state.game) return;
+        //console.log(frames);
+        if(frames % 100 == 0){
+            // console.log("yes"); 
+            this.position.push({
+                x : cvs.width,
+                y : this.maxYpos * (Math.random()),
+
+            });
+
+        }
+            //console.log(this.position[1].x);
+            //console.log(this.position.length);
+            // console.log(this.position.length);
+            for(let i=0 ; i<this.position.length ; i++){
+               // console.log(i);
+                let p = this.position[i];
+                p.x -= this.dx;
+
+                let bottomPipesPosition = p.y + this.h + this.gap;
+
+                if(bird.x+bird.radius > p.x && bird.x-bird.radius < p.x+this.w && bird.y+bird.radius > p.y && bird.y-bird.radius < p.y+this.h){
+                    HIT.play();
+                    state.current = state.gameOver;
+                }
+                if(bird.x+bird.radius > p.x && bird.x-bird.radius < p.x+this.w && bird.y+bird.radius > bottomPipesPosition && bird.y-bird.radius < bottomPipesPosition+this.h){
+                    HIT.play();
+                    state.current = state.gameOver;
+                }
+
+                if(p.x + this.w <= 0){
+                    this.position.shift();
+                    score.value += 1;
+                    SCORE.play();
+                    score.best = Math.max(score.value, score.best);
+                    localStorage.setItem("best", score.best);
+                }
+            }
+
+        },
+
 };
 
 function update(){
