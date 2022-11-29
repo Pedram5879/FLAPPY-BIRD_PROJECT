@@ -228,6 +228,19 @@ var pipes = {
             }
 
         },
+        draw : function(){
+            //console.log(this.position.length);
+            for(let i=0 ; i<this.position.length ; i++){
+                //console.log(position[i]);
+                let p = this.position[i];
+                //console.log(p.y)
+                let topYpos = p.y;
+                let bottomYpos = p.y + this.h + this.gap;
+                ctx.drawImage(sprite, this.top.sX, this.top.sY, this.w, this.h, p.x, topYpos, this.w, this.h);
+                ctx.drawImage(sprite, this.bottom.sX, this.bottom.sY, this.w, this.h, p.x, bottomYpos, this.w, 2*this.h);
+
+            }
+        },
 
 };
 
