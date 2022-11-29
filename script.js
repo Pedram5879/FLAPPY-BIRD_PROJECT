@@ -247,6 +247,7 @@ var pipes = {
 function update(){
     bird.update();
     fg.update();
+    pipes.update();
 }
 function darw(){
     ctx.fillStyle = "#4ec0ca";
