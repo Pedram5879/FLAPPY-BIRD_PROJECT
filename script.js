@@ -24,6 +24,8 @@ function clickHandler(){
         case state.gameOver:
             bird.speed = 0;
             bird.rotation = 0;
+            pipes.position = [];
+            score.value = 0,
             state.current = state.getReady;
             break;
     }
