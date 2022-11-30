@@ -177,6 +177,30 @@ var gameOver = {
 var score = {
     best :parseInt(localStorage.getItem("best")) || 0, 
     value : 0,
+    draw : function(){
+
+        ctx.fillStyle = "#9d4a00";
+        ctx.strokeStyle = "#e8e3ae";
+
+        if(state.current == state.game){
+            ctx.lineWidth = 2;
+            ctx.font = "30px IMPACT";
+           
+            ctx.fillText(this.value, cvs.width/2, 50);
+            ctx.strokeText(this.value, cvs.width/2, 50);
+
+        }else if(state.current == state.gameOver){
+            ctx.lineWidth = 2;
+
+            ctx.font = "25px IMPACT";
+
+            ctx.fillText(this.value, 212, 146);
+            ctx.strokeText(this.value, 212, 146);
+
+            ctx.fillText(this.best, 212, 182);
+            ctx.strokeText(this.best, 212, 182);
+        }
+    }
 }
 
 var pipes = {
