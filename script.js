@@ -291,6 +291,7 @@ function darw(){
     bird.draw();
     getReady.draw();
     gameOver.draw();
+    score.draw();
 }
 
 function animate(){
