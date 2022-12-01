@@ -269,7 +269,7 @@ var pipes = {
                 if(p.x + this.w <= 0){
                     this.position.shift();
                     score.value += 1;
-                    
+                    SCORE.play();
                     score.best = Math.max(score.value, score.best);
                     localStorage.setItem("best", score.best);
                 }
