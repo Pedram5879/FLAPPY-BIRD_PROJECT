@@ -34,6 +34,7 @@ function clickHandler(){
             state.current = state.game;
             break;
         case state.game :
+            FLAP.play();
             bird.flap();
             break;
         case state.gameOver:
