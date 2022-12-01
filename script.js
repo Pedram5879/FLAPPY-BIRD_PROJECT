@@ -13,6 +13,21 @@ var state = {
     gameOver : 2,
 }
 
+var SCORE = new Audio();
+SCORE.src = "./sfx_point.wav";
+
+var FLAP = new Audio();
+FLAP.src = "./sfx_wing.wav";
+
+var HIT = new Audio();
+HIT.src = "./sfx_hit.wav";
+
+var DIE = new Audio();
+DIE.src = "./sfx_die.wav";
+
+var START = new Audio();
+START.src = "./sfx_swooshing.wav";
+
 function clickHandler(){
     switch (state.current){
         case state.getReady :
