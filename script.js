@@ -258,11 +258,11 @@ var pipes = {
                 let bottomPipesPosition = p.y + this.h + this.gap;
 
                 if(bird.x+bird.radius > p.x && bird.x-bird.radius < p.x+this.w && bird.y+bird.radius > p.y && bird.y-bird.radius < p.y+this.h){
-                    
+                    HIT.play();
                     state.current = state.gameOver;
                 }
                 if(bird.x+bird.radius > p.x && bird.x-bird.radius < p.x+this.w && bird.y+bird.radius > bottomPipesPosition && bird.y-bird.radius < bottomPipesPosition+this.h){
-                    
+                    HIT.play();
                     state.current = state.gameOver;
                 }
 
