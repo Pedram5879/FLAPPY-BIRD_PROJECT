@@ -4,7 +4,18 @@ let ctx = cvs.getContext("2d");
 var frames = 0;
 
 var sprite = new Image();
-sprite.src = "./images/sprite.png";
+sprite.src = "sprite.png";
+
+var sprite2 = new Image();
+sprite2.src = "sprite2.png";
+
+var sprite3 = new Image();
+sprite3.src = "sprite3.png";
+
+// console.log(sprite);
+// "../is/images/sprite.png";
+
+var DEGREE = Math.PI / 180;
 
 var state = {
     current : 0, 
@@ -28,6 +39,7 @@ DIE.src = "./sfx_die.wav";
 var START = new Audio();
 START.src = "./sfx_swooshing.wav";
 
+
 function clickHandler(){
     switch (state.current){
         case state.getReady :
@@ -42,7 +54,7 @@ function clickHandler(){
             bird.speed = 0;
             bird.rotation = 0;
             pipes.position = [];
-            score.value = 0,
+            score.value = 0, 
             state.current = state.getReady;
             break;
     }
@@ -68,8 +80,7 @@ var bg = {
         ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.w, this.y, this.w
             , this.h)
     }
-}
-
+}   
 var fg = {
     sX :  465,
     sY : 0, 
@@ -149,48 +160,6 @@ var bird = {
     }
 };
 
-var getReady = {
-    sX :  455,
-    sY : 140,
-    w : 91, //546 218
-    h : 78, 
-    x : cvs.width/2 - 91/2,
-    y : 80;
-    draw : function(){
-        if(state.current == state.getReady){
-            ctx.drawImage(sprite, 470, 97, 123, 38, 100, 40, 123, 38);
-            ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
-            // ctx.drawImage(sprite, 550, 180, 83, 52, 120, 160, 83, 52);
-        }
-        // console.log(state.current);
-    }
-}
-
-var gameOver = {
-    sX :  6,
-    sY : 402, 
-    w : 174, //180 493                                          
-    h : 91, 
-    x : cvs.width/2 - 174/2, 
-    y : 100, 
-    draw : function(){
-        if(state.current == state.gameOver){
-            ctx.drawImage(sprite, 625, 96, 123, 38, 100, 40, 123, 38);
-            ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
-            // ctx.drawImage()
-            if(score.value >= 5){
-                ctx.drawImage(sprite3, 0, 35, 40, 37, 82, 132, 40, 37);
-
-            }
-            else{
-                ctx.drawImage(sprite3, 0, 0,40, 35, 82, 134, 40, 35);
-
-            }
-        }
-        // console.log(state.current);
-    },
-};
-
 var score = {
     best :parseInt(localStorage.getItem("best")) || 0, 
     value : 0,
@@ -235,7 +204,7 @@ var pipes = {
     position : [], 
     gap : 100,
     dx : 2,
-    
+
     update : function(){
         if(state.current != state.game) return;
         //console.log(frames);
@@ -277,7 +246,8 @@ var pipes = {
             }
 
         },
-        draw : function(){
+        
+    draw : function(){
             //console.log(this.position.length);
             for(let i=0 ; i<this.position.length ; i++){
                 //console.log(position[i]);
@@ -290,8 +260,52 @@ var pipes = {
 
             }
         },
-
 };
+
+var getReady = {
+    sX :  455,
+    sY : 140,
+    w : 91, //546 218
+    h : 78, 
+    x : cvs.width/2 - 91/2,
+    y : 80,
+    draw : function(){
+         if(state.current == state.getReady){
+            ctx.drawImage(sprite, 470, 97, 123, 38, 100, 40, 123, 38);
+            ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
+            // ctx.drawImage(sprite, 550, 180, 83, 52, 120, 160, 83, 52);
+        }
+        // console.log(state.current);
+    }
+
+}
+var gameOver = {
+    sX :  6,
+    sY : 402, 
+    w : 174, //180 493                                          
+    h : 91, 
+    x : cvs.width/2 - 174/2, 
+    y : 100, 
+    draw : function(){
+        if(state.current == state.gameOver){
+            ctx.drawImage(sprite, 625, 96, 123, 38, 100, 40, 123, 38);
+            ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
+            // ctx.drawImage()
+            if(score.value >= 5){
+                ctx.drawImage(sprite3, 0, 35, 40, 37, 82, 132, 40, 37);
+
+            }
+            else{
+                ctx.drawImage(sprite3, 0, 0,40, 35, 82, 134, 40, 35);
+
+            }
+        }
+        // console.log(state.current);
+    },
+    // update : function(){
+        
+    // }
+}
 
 function update(){
     bird.update();
@@ -303,8 +317,8 @@ function darw(){
     ctx.fillRect(0, 0, cvs.width, cvs.height);
 
     bg.darw();
-    fg.darw();
     pipes.draw();
+    fg.darw();
     bird.draw();
     getReady.draw();
     gameOver.draw();
@@ -320,3 +334,4 @@ function animate(){
 }
 
 animate();
+
