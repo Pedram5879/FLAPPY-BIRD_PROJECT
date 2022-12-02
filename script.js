@@ -31,6 +31,7 @@ START.src = "./sfx_swooshing.wav";
 function clickHandler(){
     switch (state.current){
         case state.getReady :
+            START.play();
             state.current = state.game;
             break;
         case state.game :
